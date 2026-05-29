@@ -47,7 +47,7 @@ const GALLERY_ITEMS = [
     subtitle: "Maturare în Stejar",
     desc: "Pivnița subpământeană de maturare la baric, Codrii Tigheciului.",
     extra: "Stejar francez de minim 18 luni.",
-    src: "/src/assets/images/winery_heritage_cellar_1779621630425.png"
+    src: "/assets/images/winery_heritage_cellar_1779621630425.png"
   },
   {
     id: "barrel",
@@ -55,7 +55,7 @@ const GALLERY_ITEMS = [
     subtitle: "Tradiție Monogramată",
     desc: "Butoaiele noastre speciale poartă monograma oficială a cramei Poem de Codru gravată în lemn.",
     extra: "Maturare în butoi de stejar.",
-    src: "/src/assets/images/butoi.jpg"
+    src: "/assets/images/butoi.jpg"
   },
   {
     id: "vineyard",
@@ -63,7 +63,7 @@ const GALLERY_ITEMS = [
     subtitle: "Inima Codrilor Tigheciului",
     desc: "Plantația de viță-de-vie situată pe dealurile înalte și aerisite ale Codrilor.",
     extra: "Sol cernoziom argilo-calcaros.",
-    src: "/src/assets/images/via.jpg"
+    src: "/assets/images/via.jpg"
   },
   {
     id: "bottle",
@@ -71,7 +71,7 @@ const GALLERY_ITEMS = [
     subtitle: "Prezentare Elegantă",
     desc: "Sticlele noastre speciale, o expresie a eleganței și a freamătului Codrilor.",
     extra: "Ediție limitată, sticle numerotate.",
-    src: "/src/assets/images/sticla.jpg"
+    src: "/assets/images/sticla.jpg"
   },
   {
     id: "label",
@@ -79,7 +79,7 @@ const GALLERY_ITEMS = [
     subtitle: "Poezie Vizuală",
     desc: "Fiecare sticlă poartă o etichetă creată ca o filă de manuscris vechi moldovenesc.",
     extra: "Concept artistic Poem de Codru.",
-    src: "/src/assets/images/eticheta.png"
+    src: "/assets/images/eticheta.png"
   }
 ];
 

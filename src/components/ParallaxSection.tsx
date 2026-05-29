@@ -74,7 +74,7 @@ export default function ParallaxSection() {
           className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-20 z-0 transition-opacity duration-1000"
           style={{ mixBlendMode: "screen" }}
         >
-          <source src="/src/assets/images/Vineyard_background_immersive_site_202605250925.mp4" type="video/mp4" />
+          <source src="/assets/images/Vineyard_background_immersive_site_202605250925.mp4" type="video/mp4" />
         </video>
       )}
 

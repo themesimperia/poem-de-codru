@@ -7,22 +7,38 @@ import fs from 'fs';
 // Automatically copy files from the user-selected 1.PoemDecodru-Images folder to the src/assets/images folder
 try {
   const srcDir = path.resolve(__dirname, '1.PoemDecodru-Images');
-  const destDir = path.resolve(__dirname, 'src/assets/images');
+  const destDirSrc = path.resolve(__dirname, 'src/assets/images');
+  const destDirPublic = path.resolve(__dirname, 'public/assets/images');
+  
   if (fs.existsSync(srcDir)) {
-    if (!fs.existsSync(destDir)) {
-      fs.mkdirSync(destDir, { recursive: true });
+    if (!fs.existsSync(destDirSrc)) {
+      fs.mkdirSync(destDirSrc, { recursive: true });
     }
+    if (!fs.existsSync(destDirPublic)) {
+      fs.mkdirSync(destDirPublic, { recursive: true });
+    }
+    
+    // Copy the cellar image from src to public if it exists
+    const cellarSrc = path.join(destDirSrc, 'winery_heritage_cellar_1779621630425.png');
+    const cellarDest = path.join(destDirPublic, 'winery_heritage_cellar_1779621630425.png');
+    if (fs.existsSync(cellarSrc)) {
+      fs.copyFileSync(cellarSrc, cellarDest);
+    }
+
     const files = fs.readdirSync(srcDir);
     let copiedCount = 0;
     for (const file of files) {
       const srcFile = path.join(srcDir, file);
-      const destFile = path.join(destDir, file);
+      const destFileSrc = path.join(destDirSrc, file);
+      const destFilePublic = path.join(destDirPublic, file);
+      
       if (fs.statSync(srcFile).isFile()) {
-        fs.copyFileSync(srcFile, destFile);
+        fs.copyFileSync(srcFile, destFileSrc);
+        fs.copyFileSync(srcFile, destFilePublic);
         copiedCount++;
       }
     }
-    console.log(`[Vite Config] Successfully copied ${copiedCount} files from 1.PoemDecodru-Images to src/assets/images!`);
+    console.log(`[Vite Config] Successfully copied ${copiedCount} files from 1.PoemDecodru-Images to src/assets/images and public/assets/images!`);
   }
 } catch (err) {
   console.error('[Vite Config] Failed to copy files:', err);
