@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", SFMono-Regular, Consolas, monospace;
+  --font-display: "Cinzel", "Playfair Display", serif;
+
+  --color-brand-bg: #080808;
+  --color-brand-cream: #EAE0D5;
+  --color-brand-burgundy: #800020;
+}
+
+/* Base scrollbar stylings for elegant dark mode look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #80002030;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #800020aa;
+}
+
+body {
+  background-color: #080808;
+  color: #EAE0D5;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Beautiful vintage horizontal/vertical text layouts */
+.vertical-text {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+/* Custom styled range input updated to match Editorial Burgundy style */
+input[type="range"] {
+  accent-color: #800020;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  border: 1px solid #800020;
+  background: #080808;
+  box-shadow: 0 0 12px rgba(128, 0, 32, 0.5);
+  transition: all 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #800020;
+  transform: scale(1.15);
+}

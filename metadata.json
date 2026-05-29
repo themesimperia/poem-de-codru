@@ -1,0 +1,6 @@
+{
+  "name": "Poem de Codru Vineyard",
+  "description": "An interactive, high-end vineyard website featuring a luxury dark mode theme, elegant Adobe XD-style parallax scrolling, and comprehensive interactive grape harvest statistics for the Poem de Codru brand.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
