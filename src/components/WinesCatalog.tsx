@@ -107,7 +107,7 @@ export default function WinesCatalog({ onAddWineToTray, trayQuantities }: WinesC
         </div>
 
         {/* Tab Selection Row (Figma Style Double-lined Tabs) */}
-        <div className="flex justify-center items-center gap-2 max-w-md mx-auto p-1 bg-[#121212]/85 border border-brand-cream/10 rounded-2xl">
+        <div className="flex justify-center items-center gap-1 sm:gap-2 max-w-md mx-auto p-1 bg-[#121212]/85 border border-brand-cream/10 rounded-2xl">
           {[
             { id: "all", label: "Toate" },
             { id: "red", label: "Vin Roșu" },
@@ -120,7 +120,7 @@ export default function WinesCatalog({ onAddWineToTray, trayQuantities }: WinesC
                 setActiveTab(tab.id as any);
                 setSelectedWineId(null); // Reset detail panel on tab switch
               }}
-              className={`flex-1 py-2 px-3 rounded-xl text-xs font-serif transition-all duration-300 cursor-pointer text-center font-semibold ${
+              className={`flex-1 py-1.5 sm:py-2 px-1.5 sm:px-3 rounded-xl text-[11px] sm:text-xs font-serif transition-all duration-300 cursor-pointer text-center font-semibold ${
                 activeTab === tab.id
                   ? "bg-brand-burgundy text-brand-cream shadow-md"
                   : "text-brand-cream/40 hover:text-brand-cream hover:bg-brand-burgundy/5"
@@ -141,10 +141,10 @@ export default function WinesCatalog({ onAddWineToTray, trayQuantities }: WinesC
               <motion.div
                 LayoutId={`wine-card-${wine.id}`}
                 key={wine.id}
-                className={`group rounded-3xl border p-6 flex flex-col justify-between relative overflow-hidden bg-gradient-to-t from-[#121212]/40 to-[#0c0c0c]/80 backdrop-blur-md transition-all duration-300 ${
+                className={`group rounded-3xl border p-6 flex flex-col justify-between relative overflow-hidden bg-brand-card backdrop-blur-md transition-all duration-300 ${
                   selectedWineId === wine.id
                     ? "border-brand-burgundy shadow-[0_20px_40px_rgba(128,0,32,0.15)] ring-1 ring-brand-burgundy/40"
-                    : "border-brand-cream/10 hover:border-brand-burgundy/40 hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+                    : "border-brand-border hover:border-brand-burgundy/40 hover:shadow-[0_15px_30px_rgba(0,0,0,0.15)]"
                 }`}
               >
                 {/* Micro badge of Sommelier premium rating */}
@@ -254,12 +254,12 @@ export default function WinesCatalog({ onAddWineToTray, trayQuantities }: WinesC
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.45, ease: "easeInOut" }}
-              className="bg-[#121212]/30 rounded-3xl border-l-4 border-brand-burgundy border-y border-r border-brand-cream/10 p-6 md:p-8 backdrop-blur-xl relative overflow-hidden"
+              className="bg-brand-card rounded-3xl border-l-4 border-brand-burgundy border-y border-r border-brand-border p-6 md:p-8 backdrop-blur-xl relative overflow-hidden"
             >
               <div className="absolute top-4 right-4">
                 <button
                   onClick={() => setSelectedWineId(null)}
-                  className="w-8 h-8 rounded-full bg-brand-bg border border-brand-cream/10 text-brand-cream hover:bg-brand-burgundy transition-colors text-xs flex items-center justify-center font-bold cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-brand-bg border border-brand-border text-brand-cream hover:bg-brand-burgundy transition-colors text-xs flex items-center justify-center font-bold cursor-pointer"
                 >
                   ✕
                 </button>

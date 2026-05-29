@@ -1,41 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
+:root {
+  /* Dark Theme Variable Tokens */
+  --color-bg-primary: #050505;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-card: rgba(18, 18, 18, 0.3);
+  --color-accent-premium: #800020;
+  --color-accent-hover: #aa283c;
+  --color-accent-gold: #D4AF37;
+  --color-text-primary: #EAE0D5;
+  --color-text-secondary: rgba(234, 224, 213, 0.6);
+  --color-border-primary: rgba(128, 0, 32, 0.15);
+  --color-footer-bg: #0a0a0a;
+}
+
+#poem-de-codru-app-root.light-theme {
+  /* Light Theme Variable Tokens */
+  --color-bg-primary: #F4EEE6; /* Warm Ivory */
+  --color-bg-secondary: #E7D7C9; /* Soft Sand */
+  --color-bg-card: #EFE4D6; /* Linen Beige */
+  --color-accent-premium: #6E2C2C; /* Bordeaux Wine */
+  --color-accent-hover: #8A3A3A; /* Bordeaux Wine Hover */
+  --color-accent-gold: #B08A57; /* Antique Gold */
+  --color-text-primary: #2A1E1A; /* Espresso Brown */
+  --color-text-secondary: rgba(42, 30, 26, 0.7);
+  --color-border-primary: rgba(110, 44, 44, 0.15);
+  --color-footer-bg: #1E1714; /* Deep Forest Brown */
+}
+
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
   --font-mono: "JetBrains Mono", SFMono-Regular, Consolas, monospace;
   --font-display: "Cinzel", "Playfair Display", serif;
 
-  --color-brand-bg: #080808;
-  --color-brand-cream: #EAE0D5;
-  --color-brand-burgundy: #800020;
+  --color-brand-bg: var(--color-bg-primary);
+  --color-brand-bg-sec: var(--color-bg-secondary);
+  --color-brand-card: var(--color-bg-card);
+  --color-brand-cream: var(--color-text-primary);
+  --color-brand-burgundy: var(--color-accent-premium);
+  --color-brand-gold: var(--color-accent-gold);
+  --color-brand-border: var(--color-border-primary);
 }
 
-/* Base scrollbar stylings for elegant dark mode look */
+/* Base scrollbar stylings for elegant dark/light mode look */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080808;
+  background: var(--color-bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #80002030;
+  background: rgba(128, 0, 32, 0.15);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #800020aa;
+  background: var(--color-accent-premium);
 }
 
 body {
-  background-color: #080808;
-  color: #EAE0D5;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  transition-property: background-color, color, border-color;
+  transition-duration: 500ms;
 }
 
 /* Beautiful vintage horizontal/vertical text layouts */
@@ -46,17 +80,24 @@ body {
 
 /* Custom styled range input updated to match Editorial Burgundy style */
 input[type="range"] {
-  accent-color: #800020;
+  accent-color: var(--color-accent-premium);
 }
 
 input[type="range"]::-webkit-slider-thumb {
-  border: 1px solid #800020;
-  background: #080808;
-  box-shadow: 0 0 12px rgba(128, 0, 32, 0.5);
+  border: 1px solid var(--color-accent-premium);
+  background: var(--color-bg-primary);
+  box-shadow: 0 0 12px rgba(128, 0, 32, 0.3);
   transition: all 0.3s;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
-  background: #800020;
+  background: var(--color-accent-premium);
   transform: scale(1.15);
+}
+
+/* Elegant transition helpers */
+.transition-all-theme {
+  transition-property: background-color, color, border-color, box-shadow, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
 }

@@ -14,6 +14,15 @@ import Footer from "./components/Footer";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("parallax");
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    try {
+      const saved = localStorage.getItem("poem_de_codru_theme");
+      return saved === "light" ? "light" : "dark";
+    } catch {
+      return "dark";
+    }
+  });
+
   const [trayQuantities, setTrayQuantities] = useState<Record<string, number>>(() => {
     try {
       const saved = localStorage.getItem("poem_de_codru_tray");
@@ -23,10 +32,19 @@ export default function App() {
     }
   });
 
+  // Persist theme choice when it changes
+  useEffect(() => {
+    localStorage.setItem("poem_de_codru_theme", theme);
+  }, [theme]);
+
   // Persist wine quantities whenever they change
   useEffect(() => {
     localStorage.setItem("poem_de_codru_tray", JSON.stringify(trayQuantities));
   }, [trayQuantities]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   const handleAddWineToTray = (wineId: string) => {
     setTrayQuantities((prev) => ({
@@ -111,15 +129,15 @@ export default function App() {
   }, []);
 
   return (
-    <div id="poem-de-codru-app-root" className="min-h-screen bg-[#050505] selection:bg-brand-burgundy/30 selection:text-brand-cream relative text-brand-cream flex flex-col justify-between">
+    <div id="poem-de-codru-app-root" className={`min-h-screen bg-brand-bg selection:bg-brand-burgundy/30 selection:text-brand-cream relative text-brand-cream flex flex-col justify-between transition-colors duration-500 ${theme === 'light' ? 'light-theme' : 'dark-theme'}`}>
       {/* 1. Header Nav */}
-      <Header activeSection={activeSection} onNavigate={handleNavigation} />
+      <Header activeSection={activeSection} onNavigate={handleNavigation} theme={theme} onToggleTheme={toggleTheme} />
 
       {/* 2. Main Content Canvas */}
       <main className="flex-grow">
         {/* Parallax Adobe XD Showcase Section */}
         <section id="parallax-section-container">
-          <ParallaxSection />
+          <ParallaxSection theme={theme} />
         </section>
 
         {/* Historic Heritage Story Section */}

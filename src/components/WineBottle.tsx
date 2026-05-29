@@ -49,15 +49,11 @@ export default function WineBottle({
   return (
     <div
       id={`wine-bottle-container-${id}`}
-      style={{
-        position: "relative",
-        width: isLarge ? "240px" : "130px",
-        height: isLarge ? "680px" : "400px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-      className="select-none filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)]"
+      className={`select-none filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] flex flex-col items-center relative transition-all duration-500 ${
+        isLarge 
+          ? "w-[160px] h-[450px] sm:w-[200px] sm:h-[560px] lg:w-[240px] lg:h-[680px]" 
+          : "w-[130px] h-[400px]"
+      }`}
     >
       <svg
         viewBox="0 0 160 520"

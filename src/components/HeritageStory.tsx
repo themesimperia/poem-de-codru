@@ -160,12 +160,12 @@ export default function HeritageStory() {
             </div>
 
             {/* Gallery Image Selector Controls (luxury overlay style) */}
-            <div className="flex justify-center gap-1.5 p-1 bg-[#121212]/80 border border-brand-cream/10 rounded-2xl max-w-md mx-auto relative z-25">
+            <div className="flex overflow-x-auto scrollbar-none sm:justify-center gap-1 sm:gap-1.5 p-1 bg-[#121212]/80 border border-brand-cream/10 rounded-2xl max-w-md mx-auto relative z-25 whitespace-nowrap">
               {GALLERY_ITEMS.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setSelectedGalleryId(item.id)}
-                  className={`flex-1 py-1.5 px-2 rounded-xl text-[10px] font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer text-center ${
+                  className={`flex-1 py-1 sm:py-1.5 px-2 rounded-xl text-[9px] sm:text-[10px] font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer text-center shrink-0 ${
                     selectedGalleryId === item.id
                       ? "bg-brand-burgundy text-brand-cream shadow-md"
                       : "text-brand-cream/50 hover:text-brand-cream hover:bg-brand-burgundy/10"

@@ -9,7 +9,7 @@ import { Mail, Phone, MapPin, Globe, Sparkles } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-bg border-t border-brand-burgundy/15 text-brand-cream/60 py-16 px-6 relative overflow-hidden">
+    <footer className="bg-[var(--color-footer-bg)] border-t border-brand-burgundy/15 text-brand-cream/60 py-16 px-6 relative overflow-hidden transition-colors duration-500">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-start relative z-10">
         
         {/* About brand */}

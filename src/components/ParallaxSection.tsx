@@ -9,7 +9,11 @@ import { WINES, BRAND_HISTORY, BRAND_PILLARS } from "../data";
 import WineBottle from "./WineBottle";
 import { HelpCircle, ChevronLeft, ChevronRight, Compass, Flame, Droplets, Sun, Sparkles, Award } from "lucide-react";
 
-export default function ParallaxSection() {
+interface ParallaxSectionProps {
+  theme: "dark" | "light";
+}
+
+export default function ParallaxSection({ theme }: ParallaxSectionProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollValue, setScrollValue] = useState(0); // Simulated parallax position: -100 to 100
   const [showVideoBg, setShowVideoBg] = useState(true);
@@ -62,7 +66,11 @@ export default function ParallaxSection() {
       id="parallax-canvas-viewport"
       ref={containerRef}
       onWheel={handleWheel}
-      className={`relative w-full min-h-[92vh] overflow-hidden bg-gradient-to-b ${activeWine.bgColor} transition-all duration-1000 flex flex-col justify-between pt-24 pb-12 px-4 md:px-8`}
+      className={`relative w-full min-h-[92vh] overflow-hidden bg-brand-bg transition-all duration-1000 flex flex-col justify-between pt-24 pb-12 px-4 md:px-8`}
+      style={{
+        background: theme === "light" ? "var(--gradient-hero)" : undefined,
+        backgroundImage: theme === "dark" ? `linear-gradient(to bottom, var(--color-bg-primary), ${activeWine.accentColor}12, var(--color-bg-primary))` : undefined
+      }}
     >
       {/* Immersive Video Background Layer */}
       {showVideoBg && (
